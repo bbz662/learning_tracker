@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Activity - Learning Tracker</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Activity</h1>
+        <form method="POST">
+            <div class="form-group">
+                <input type="text" name="title" placeholder="Activity title" value="{{ activity.title }}" class="form-control">
+                <input type="text" name="description" placeholder="Activity description" value="{{ activity.description }}" class="form-control">
+                <input type="number" name="hours" placeholder="Hours spent" value="{{ activity.hours }}" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+        <a class="btn btn-default" href="{{ url_for('activities') }}">Back to Activities</a>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

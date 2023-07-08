@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Learning Tracker</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Welcome to Learning Tracker!</h1>
+            <p><a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button">Register</a></p>
+            <p><a class="btn btn-success btn-lg" href="{{ url_for('login') }}" role="button">Login</a></p>
+        </div>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

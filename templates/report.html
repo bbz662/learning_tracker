@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report - Learning Tracker</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Report</h1>
+        {% for activity in activities %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">{{ activity.title }}</h2>
+            </div>
+            <div class="panel-body">
+                <p>{{ activity.description }}</p>
+                <p>{{ activity.hours }} hours</p>
+            </div>
+        </div>
+        {% endfor %}
+        <p class="lead">Total hours: {{ total_hours }}</p>
+        <a class="btn btn-default" href="{{ url_for('activities') }}">Back to Activities</a>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Activities - Learning Tracker</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Activities</h1>
+        <form method="POST" class="form-inline">
+            <div class="form-group">
+                <input type="text" name="title" placeholder="Activity title" class="form-control">
+                <input type="text" name="description" placeholder="Activity description" class="form-control">
+                <input type="number" name="hours" placeholder="Hours spent" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Activity</button>
+        </form>
+        {% for activity in activities %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">{{ activity.title }}</h2>
+            </div>
+            <div class="panel-body">
+                <p>{{ activity.description }}</p>
+                <p>{{ activity.hours }} hours</p>
+            </div>
+            <div class="panel-footer">
+                <a class="btn btn-info" href="{{ url_for('edit_activity', id=activity.id) }}">Edit</a>
+                <a class="btn btn-danger" href="{{ url_for('delete_activity', id=activity.id) }}">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+        <a class="btn btn-default" href="{{ url_for('report') }}">View Report</a>
+        <a class="btn btn-default" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
